@@ -19,7 +19,7 @@ class MenuServiceTest {
     MenuService menuService = new MenuService(menuRepository);
 
     @Test
-    void listMenus_whenNoMenuExists_ThenStatusOKAndReturnListWithLengthOfZero()
+    void listMenus_whenNoMenuExists_thenReturnListWithLengthOfZero()
     {
         int expectedListLength = 0;
         when(menuRepository.list()).thenReturn(new ArrayList<Menu>());
@@ -31,7 +31,7 @@ class MenuServiceTest {
     }
 
     @Test
-    void listMenus_whenMenuExists_ThenStatusOKAndListAllMenus()
+    void listMenus_whenMenuExists_thenListAllMenus()
     {
         List<Menu> expectedMenus = new ArrayList<>();
 
@@ -82,7 +82,7 @@ class MenuServiceTest {
     }
 
     @Test
-    void addMenu_whenMenuAdded_ThenVerifyAddMenuInMenuRepository() {
+    void addMenu_whenMenuAdded_thenVerifyAddMenuInMenuRepository() {
 
         Menu menuToBeAdded = new Menu(
                 "M01",
@@ -99,7 +99,7 @@ class MenuServiceTest {
     }
 
     @Test
-    void updateMenu_whenUpdateMenu_ThenVerifyUpdateMenuInMenuRepository() {
+    void updateMenu_whenUpdateMenu_thenVerifyUpdateMenuInMenuRepository() {
 
         String id = "M01";
 
@@ -126,7 +126,7 @@ class MenuServiceTest {
     }
 
     @Test
-    void deleteMenu_whenDeleteMenu_ThenVerifyDeleteMenuInMenuRepository() {
+    void deleteMenu_whenDeleteMenu_thenVerifyDeleteMenuInMenuRepository() {
 
         String id = "M01";
 
