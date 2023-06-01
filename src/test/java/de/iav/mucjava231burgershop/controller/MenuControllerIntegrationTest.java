@@ -43,7 +43,6 @@ class MenuControllerIntegrationTest {
     void listMenus_whenMenuExists_thenStatusOKAndListAllMenus() throws Exception {
 
         this.menuRepository.addMenu(new Menu(
-                "",
                 "Menu 1",
                 15.0,
                 new Dish("Chicken wings"),
@@ -51,7 +50,6 @@ class MenuControllerIntegrationTest {
                 new Beverage("Cola")));
 
         this.menuRepository.addMenu(new Menu(
-                "",
                 "Menu 2",
                 18.0,
                 new Dish("Beef burger"),
@@ -61,6 +59,8 @@ class MenuControllerIntegrationTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/menus"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].id").exists())
+                .andExpect(MockMvcResultMatchers.jsonPath("$[1].id").exists())
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].name").value("Menu 1"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[1].name").value("Menu 2"));
 
@@ -96,7 +96,6 @@ class MenuControllerIntegrationTest {
                 .content(
                         """ 
                             {
-                                "id": "",
                                 "name": "Menu 20", 
                                 "price": 205.0,
                                 "mainDish": {"name": "Beef burger"}, 
@@ -108,6 +107,7 @@ class MenuControllerIntegrationTest {
 
         mockMvc.perform(MockMvcRequestBuilders.get("/api/menus"))
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].id").exists())
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].name").value("Menu 20"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].price").value(205.0))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].mainDish.name").value("Beef burger"))

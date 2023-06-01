@@ -16,7 +16,11 @@ public record Menu
 
     public Menu(String id, String name, Double price, Dish mainDish, Dish sideDish, Beverage beverage)
     {
-        this.id = id;
+        if (id == null){
+            this.id = UUID.randomUUID().toString();
+        } else {
+            this.id = id;
+        }
         this.name = name;
         this.price = price;
         this.mainDish = mainDish;

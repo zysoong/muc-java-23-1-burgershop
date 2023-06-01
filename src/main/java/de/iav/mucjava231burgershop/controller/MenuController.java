@@ -5,6 +5,7 @@ import de.iav.mucjava231burgershop.service.MenuService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/menus")
@@ -42,5 +43,6 @@ public class MenuController {
     public void deleteMenu(@PathVariable String id){
         this.menuService.deleteMenu(id);
     }
+
 
 }
