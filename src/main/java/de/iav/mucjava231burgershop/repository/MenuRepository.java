@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 @Repository
 public class MenuRepository {
 
-    private List<Menu> menus;
+    private final List<Menu> menus;
 
     public MenuRepository(List<Menu> menus){
         this.menus = menus;
