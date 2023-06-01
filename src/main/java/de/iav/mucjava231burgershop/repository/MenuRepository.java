@@ -51,6 +51,7 @@ public class MenuRepository {
         for (int i = 0; i < this.menus.size(); i++){
             if (this.menus.get(i).id().equals(id)){
                 this.menus.remove(i);
+                return;
             }
         }
         throw new NoSuchElementException("Menu with the id " + id + " was not found");
