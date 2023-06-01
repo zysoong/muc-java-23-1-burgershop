@@ -37,12 +37,11 @@ public class MenuRepository {
 
     public void updateMenu(String id, Menu menu){
         for (int i = 0; i < this.menus.size(); i++){
-
             if (this.menus.get(i).id().equals(id)){
-
                 this.menus.remove(i);
                 Menu menuToAdd = new Menu(id, menu.name(), menu.price(), menu.mainDish(), menu.sideDish(), menu.beverage());
                 this.menus.add(menuToAdd);
+                return;
             }
         }
         throw new NoSuchElementException("Menu with the id " + id + " was not found");

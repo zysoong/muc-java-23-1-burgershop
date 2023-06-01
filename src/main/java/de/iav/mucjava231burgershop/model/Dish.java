@@ -1,4 +1,4 @@
 package de.iav.mucjava231burgershop.model;
 
-public record Dish (String name, double price) {
+public record Dish (String name, Double price) {
 }

@@ -28,7 +28,7 @@ public class MenuController {
     }
 
     @PostMapping
-    public void addMenu(Menu menu)
+    public void addMenu(@RequestBody  Menu menu)
     {
         this.menuService.addMenu(menu);
     }
