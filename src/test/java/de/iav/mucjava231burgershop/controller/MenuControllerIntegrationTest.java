@@ -72,7 +72,6 @@ class MenuControllerIntegrationTest {
 
 
         this.menuRepository.addMenu(new Menu(
-                "",
                 "Menu 4",
                 20.0,
                 new Dish("Beef burger"),
@@ -124,7 +123,6 @@ class MenuControllerIntegrationTest {
     void updateMenu_whenUpdateMenu_thenMenuOfGivenIdShouldBeUpdated() throws Exception {
 
         this.menuRepository.addMenu(new Menu(
-                "",
                 "Menu 4",
                 20.0,
                 new Dish("Beef burger"),
@@ -162,7 +160,6 @@ class MenuControllerIntegrationTest {
     void deleteMenu_whenDeleteExistingMenu_thenReturnListWithMenuDeleted() throws Exception {
 
         this.menuRepository.addMenu(new Menu(
-                "",
                 "Menu 4",
                 20.0,
                 new Dish("Beef burger"),

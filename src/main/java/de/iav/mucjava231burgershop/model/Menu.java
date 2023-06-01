@@ -16,12 +16,17 @@ public record Menu
 
     public Menu(String id, String name, Double price, Dish mainDish, Dish sideDish, Beverage beverage)
     {
-        this.id = UUID.randomUUID().toString();
+        this.id = id;
         this.name = name;
         this.price = price;
         this.mainDish = mainDish;
         this.sideDish = sideDish;
         this.beverage = beverage;
+    }
+
+    public Menu(String name, Double price, Dish mainDish, Dish sideDish, Beverage beverage)
+    {
+        this(UUID.randomUUID().toString(), name, price, mainDish, sideDish, beverage);
     }
 
 }
